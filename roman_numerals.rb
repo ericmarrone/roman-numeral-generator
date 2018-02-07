@@ -16,16 +16,14 @@ class Integer
       1 => 'I'
     }
 
-  num = self
+    num = self
 
-  roman_arr.reduce("") do |result, (arab, roman)|
-   p [result, arab, roman, num.divmod(arab)]
-
-  end
-
-
+    roman_arr.reduce('') do |result, (arab, roman)|
+      # p [result, arab, roman, num.divmod(arab)]
+      quotient, num = num.divmod(arab)
+      result << roman * quotient
+    end
   end
 end
 
-
-p 100.to_roman
+p 1320.to_roman
