@@ -1,28 +1,31 @@
-puts "Enter a number: "
-number = gets.chomp.to_i
-digits = number.digits
-if number > 100
-  puts "C"
-elsif number > 90
-  puts "XC"
-elsif number > 50
-  puts "L"
-elsif number > 40
-  puts "XL"
-elsif number > 10
-  puts "X"
-elsif number == 9
-  puts "IX"
-elsif number > 5
-  puts "V"
-elsif number == 4
-  puts "IV"
-elsif number > 1
-  puts "I"
+class Integer
+  def to_roman
+    roman_arr = {
+      1000 => 'M',
+      900 => 'CM',
+      500 => 'D',
+      400 => 'CD',
+      100 => 'C',
+      90 => 'XC',
+      50 => 'L',
+      40 => 'XL',
+      10 => 'X',
+      9 => 'IX',
+      5 => 'V',
+      4 => 'IV',
+      1 => 'I'
+    }
+
+  num = self
+
+  roman_arr.reduce("") do |result, (arab, roman)|
+   p [result, arab, roman, num.divmod(arab)]
+
+  end
+
+
+  end
 end
 
-x = digits.reverse
-count = x.length
-x.each_with_index do |value, index|
-  puts "#{value}, #{index}"
-end
+
+p 100.to_roman
