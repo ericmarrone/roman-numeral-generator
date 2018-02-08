@@ -26,4 +26,7 @@ class Integer
   end
 end
 
-p 1320.to_roman
+print "Enter a number:"
+number = gets.chomp.to_i
+
+puts "Roman numeral: #{number.to_roman}"
